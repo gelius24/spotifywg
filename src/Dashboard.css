@@ -1,0 +1,21 @@
+.dashboard1{
+    background: linear-gradient(rgb(91, 87, 115), rgba(0,0,0,1)) no-repeat;
+    height: 100vh;
+    width: 100vw;
+    color: white;
+    display: grid;
+    grid-template-columns: 20vw 80vw;
+    grid-template-areas: 'aside header'
+    'aside main'
+    'player player'
+    ;
+    
+}
+
+.header1{
+    grid-area: header;
+    border: 1px red solid;
+}
+.main{grid-area: main;}
+.aside{grid-area: aside;}
+.player1{grid-area: player;}

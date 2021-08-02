@@ -1,0 +1,14 @@
+.main{
+    /* border: 1px greenyellow solid; */
+    /* width: 70%;
+    height: 80vh; */
+    font-size: 3rem;
+    /* margin-left: auto; */
+}
+.tracks-box{
+    margin-left: 2%;
+    height: 80vh;
+}
+.tracks-box::-webkit-scrollbar {
+    display: none;
+}

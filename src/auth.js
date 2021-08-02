@@ -17,6 +17,7 @@ export default function Auth(code) {
     // posting of the code (in exchange of access token)
     useEffect(() => {
         console.log(window.location.origin, port)
+        console.log('url...', url)
         axios.post(`${url}/login`, {code})
         .then(res => {
             console.log(res);

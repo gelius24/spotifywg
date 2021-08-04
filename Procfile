@@ -1,1 +1,1 @@
-worker:$(node server.js; cd client && npm start;)
+web:npm start

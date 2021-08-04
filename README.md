@@ -1,4 +1,4 @@
-https://610632a8234cb005dc81885e--spotifywg.netlify.app/
+https://spotifywg.herokuapp.com/
 
 # Getting Started with Create React App
 

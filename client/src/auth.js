@@ -2,8 +2,8 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 // import { url } from './Login'
 const port = process.env.PORT || 3001;
-console.log("process.env.PORT >>>", process.env.PORT);
-console.log("process.env.port >>>", process.env.port);
+console.log("process.env.PORT :::", process.env.PORT);
+
 let url = "";
 if (window.location.origin === "http://localhost:3000") {
   url = "http://localhost:3001";

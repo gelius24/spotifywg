@@ -11,7 +11,7 @@ app.use(express.json());
 
 console.log('(WOODY) écoute sur le port :', port)
 console.log('(WG redirect url >>', process.env.REDIRECT_URI)
-console.log("client id",  process.env.CLIENT_ID)
+console.log("...client id",  process.env.CLIENT_ID)
 
 if (process.env.NODE_ENV === 'production' || process.env.NODE_ENV === 'staging') {
   app.use(express.static(path.join(__dirname, 'client/build')));

@@ -5,7 +5,7 @@ import axios from "axios";
 const port = process.env.PORT || 3001;
 console.log("redirect url >", process.env.REACT_APP_REDIRECT_URI);
 console.log("process.env.REACT_APP_PORT :::", process.env.REACT_APP_PORT);
-console.log("process.env.PORT :::", process.env.PORT);
+console.log("...process.env.PORT :::", process.env.PORT);
 console.log("le ID client est >>>", process.env.REACT_APP_SECRET_ID);
 
 let url = "";

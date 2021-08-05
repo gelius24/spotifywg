@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 // import { url } from './Login'
-const port = process.env.PORT || 3001;
-console.log("redirect url >", process.env.REDIRECT_URI);
-console.log("process.env.PORT :::", process.env.PORT);
-console.log("le ID client est >>>", process.env.CLIENT_ID);
+const port = process.env.REACT_APP_PORT || 3001;
+console.log("redirect url >", process.env.REACT_APP_REDIRECT_URI);
+console.log("process.env.PORT :::", process.env.REACT_APP_PORT);
+console.log("le ID client est >>>", process.env.REACT_APP_SECRET_ID);
 
 let url = "";
 if (window.location.origin === "http://localhost:3000") {

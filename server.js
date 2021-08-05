@@ -3,7 +3,7 @@ const path = require("path");
 const express = require("express");
 const SpotifyWebApi = require("spotify-web-api-node");
 const cors = require("cors");
-const port = process.env.PORT || 3001
+const port = process.env.PORT || 36965
 
 const app = express();
 app.use(cors());

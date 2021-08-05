@@ -10,7 +10,7 @@ let url = "";
 if (window.location.origin === "http://localhost:3000") {
   url = "http://localhost:3001";
 } else {
-  url = `${window.location.origin}:${port}`;
+  url = `${window.location.origin}`;
 }
 
 export default function Auth(code) {

@@ -11,7 +11,7 @@ function Header({accessToken, spotifyApi}) {
     useEffect(() => {
         if (!accessToken) return
         spotifyApi.setAccessToken(accessToken)
-    }, [accessToken])
+    }, [accessToken, spotifyApi])
 
     useEffect(() => {
         if (!search) return setSearchResults([])
@@ -35,7 +35,7 @@ function Header({accessToken, spotifyApi}) {
             console.log('le résultat est : ', searchResults)
         })
         return () => cancel = true
-    }, [search, accessToken])
+    }, [search, accessToken, spotifyApi])
 
     return (
         <div className='header'>

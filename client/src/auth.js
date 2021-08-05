@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import {} from 'dotenv/config'
 import axios from "axios";
 // import { url } from './Login'
 const port = process.env.PORT || 3001;
@@ -8,12 +7,12 @@ console.log("process.env.REACT_APP_PORT :::", process.env.REACT_APP_PORT);
 console.log("...process.env.PORT :::", process.env.PORT);
 console.log("le ID client est >>>", process.env.REACT_APP_SECRET_ID);
 
-let url = "";
-if (window.location.origin === "http://localhost:3000") {
-  url = "http://localhost:3001";
-} else {
-  url = `${window.location.origin}:${port}`;
-}
+// let url = "";
+// if (window.location.origin === "http://localhost:3000") {
+//   url = "http://localhost:3001";
+// } else {
+//   url = `${window.location.origin}`;
+// }
 
 export default function Auth(code) {
   const [accessToken, setAccessToken] = useState();
@@ -27,7 +26,7 @@ export default function Auth(code) {
     console.log("process.env.REACT_APP_PORT :::", process.env.REACT_APP_PORT);
     console.log("le ID client est >>>", process.env.CLIENT_ID);
     axios
-      .post(`${url}/login`, { code })
+      .post(`/login`, { code })
       .then((res) => {
         console.log(res);
         setAccessToken(res.data.accessToken);
@@ -45,7 +44,7 @@ export default function Auth(code) {
     if (!refreshToken || !expiresIn) return;
     const interval = setInterval(() => {
       axios
-        .post(`${url}/refresh`, { refreshToken })
+        .post(`/refresh`, { refreshToken })
         .then((res) => {
           setAccessToken(res.data.accessToken);
           setExpiresIn(res.data.expiresIn);

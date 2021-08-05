@@ -10,6 +10,7 @@ app.use(cors());
 app.use(express.json());
 
 console.log('(WOODY) écoute sur le port :', port)
+console.log('(WG redirect url >>', process.env.REDIRECT_URI)
 
 if (process.env.NODE_ENV === 'production' || process.env.NODE_ENV === 'staging') {
   app.use(express.static(path.join(__dirname, 'client/build')));

@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import {} from 'dotenv/config'
 import axios from "axios";
 // import { url } from './Login'
-const port = process.env.REACT_APP_PORT || 3001;
+const port = process.env.PORT || 3001;
 console.log("redirect url >", process.env.REACT_APP_REDIRECT_URI);
 console.log("process.env.REACT_APP_PORT :::", process.env.REACT_APP_PORT);
 console.log("process.env.PORT :::", process.env.PORT);
@@ -24,6 +24,7 @@ export default function Auth(code) {
   useEffect(() => {
     console.log("redirect url >", process.env.REDIRECT_URI);
     console.log("process.env.PORT :::", process.env.PORT);
+    console.log("process.env.REACT_APP_PORT :::", process.env.REACT_APP_PORT);
     console.log("le ID client est >>>", process.env.CLIENT_ID);
     axios
       .post(`${url}/login`, { code })

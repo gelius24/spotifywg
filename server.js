@@ -3,13 +3,13 @@ const path = require("path");
 const express = require("express");
 const SpotifyWebApi = require("spotify-web-api-node");
 const cors = require("cors");
-const port = process.env.PORT || 36965
+const port = process.env.PORT || 3001
 
 const app = express();
 app.use(cors());
 app.use(express.json());
 
-console.log('listening on port ', port)
+console.log('(WOODY) écoute sur le port :', port)
 
 if (process.env.NODE_ENV === 'production' || process.env.NODE_ENV === 'staging') {
   app.use(express.static(path.join(__dirname, 'client/build')));

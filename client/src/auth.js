@@ -4,7 +4,7 @@ import axios from "axios";
 const port = process.env.PORT || 3001;
 console.log("redirect url >", process.env.REDIRECT_URI);
 console.log("process.env.PORT :::", process.env.PORT);
-console.log('le ID client est >>>', process.env.CLIENT_ID)
+console.log("le ID client est >>>", process.env.CLIENT_ID);
 
 let url = "";
 if (window.location.origin === "http://localhost:3000") {
@@ -20,8 +20,9 @@ export default function Auth(code) {
 
   // posting of the code (in exchange of access token)
   useEffect(() => {
-    console.log(window.location.origin, port);
-    console.log("url...", url);
+    console.log("redirect url >", process.env.REDIRECT_URI);
+    console.log("process.env.PORT :::", process.env.PORT);
+    console.log("le ID client est >>>", process.env.CLIENT_ID);
     axios
       .post(`${url}/login`, { code })
       .then((res) => {

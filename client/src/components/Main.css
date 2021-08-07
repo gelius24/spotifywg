@@ -12,3 +12,7 @@
 .tracks-box::-webkit-scrollbar {
     display: none;
 }
+
+@media (max-width: 574px) {
+    .tracks-box{margin: 0;}
+}

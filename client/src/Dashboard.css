@@ -9,7 +9,6 @@
     'aside main'
     'player player'
     ;
-    
 }
 
 .header1{
@@ -19,3 +18,14 @@
 .main{grid-area: main;}
 .aside{grid-area: aside;}
 .player1{grid-area: player;}
+
+@media (max-width: 574px) {
+    .dashboard1{
+        grid-template-columns: 100vw;
+        grid-template-areas: 'header'
+    'main'
+    'player'
+    'aside'
+    ;
+    }
+}

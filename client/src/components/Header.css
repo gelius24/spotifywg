@@ -34,3 +34,13 @@
 input:focus, textarea:focus, select:focus{
     outline: none;
 }
+
+@media (max-width: 574px) {
+    .header{
+        width: 100vw;
+        margin-top: 5px;
+    }
+    .header__left{
+        flex: 0.9;
+    }
+}

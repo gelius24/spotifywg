@@ -5,30 +5,42 @@
     place-items: center;
     place-content: center;
     margin: 0 auto;
+    height: 14vh;
 }
 .box{
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 10px;
+    width: 100%;
+    max-width: 500px;
 }
 
-img{
+.box img{
     /* margin-left: 20px; */
-    height: 100%;
+    height: 110px;
+    width: auto;
+    /* object-fit: contain; */
 }
-
-/* input{
-    margin-right: 25px;
-} */
 
 .play100{
     background-color: rgb(22, 22, 22);
-    border-top: 1px lightgray solid;
+    border-top: 1px rgba(211, 211, 211, 0.26) solid;
     height: 14vh; 
     width: 100%;
-    position: absolute;
-    bottom: 0px;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+}
+
+@media (max-width: 574px) {
+    .play100{
+        height: 100px;
+    }
+}
+
+@media (max-width: 1043px) {
+    .box img{
+        height: 64px;
+        width: 64px; 
+    }
 }

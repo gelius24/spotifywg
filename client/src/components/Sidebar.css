@@ -1,12 +1,7 @@
 .sidebar{
-    /* height: 40vh; */
-    /* flex: 0.2; */
     background-color: #040404;
     color: white;
-    /* min-width: 230px; */
     padding: 0 10px;
-    /* position: absolute;
-    top: 0; */
 }
 .sidebar__logo{
     margin-right: auto;
@@ -17,4 +12,32 @@
     margin-left: 10px;
     padding: 5px;
     font-size: 12px;
+}
+
+.sidebar img{
+    width: 100vw;
+    max-width: 230px;
+}
+
+.spotifySVG{display: none;}
+
+@media (max-width: 1240px) {
+    .sidebar img{
+        width: 99%;
+    }
+}
+
+@media (max-width: 574px) {
+.sidebar img{display: none;}
+.sidebar{
+    padding: 0;
+    height: 80px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.sidebar__title, hr, br{
+    display: none;
+}
+
 }

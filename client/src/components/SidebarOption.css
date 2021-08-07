@@ -24,3 +24,10 @@
     margin-left: 20px;
     font-size: 14px;
 }
+
+@media (max-width: 574px) {
+    .sidebarOption{
+        flex-direction: column;
+        height: unset;
+    }
+}

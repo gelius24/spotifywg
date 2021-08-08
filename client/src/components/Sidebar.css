@@ -24,6 +24,7 @@
 @media (max-width: 1240px) {
     .sidebar img{
         width: 99%;
+        height: 50px;
     }
 }
 

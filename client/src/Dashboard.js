@@ -21,11 +21,11 @@ function Dashboard({code}) {
         {/* HEADER */}
         <Header accessToken={accessToken} spotifyApi={spotifyApi} className='header' />
         {/* MAIN */}
-        <Main accessToken={accessToken} spotifyApi={spotifyApi} className='main'/>
+        <Main accessToken={accessToken} spotifyApi={spotifyApi} playingTrack={playingTrack} className='main' trackUri={playingTrack?.preview_url} />
         {/* SIDEBAR */}
         <Sidebar className='aside' />
         {/* PLAYER */}
-        <Player className='player' accessToken={accessToken} albumUrl={playingTrack?.albumUrl} title={playingTrack?.title} artist={playingTrack?.artist} trackUri={playingTrack?.preview_url}/>
+        <Player className='player' accessToken={accessToken} albumUrl={playingTrack?.albumUrl} title={playingTrack?.title} artist={playingTrack?.artist} />
       </div>
     )
 }

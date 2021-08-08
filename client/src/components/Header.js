@@ -32,7 +32,6 @@ function Header({accessToken, spotifyApi}) {
                     preview_url: track.preview_url
                 }
             }))
-            console.log('le résultat est : ', searchResults)
         })
         return () => cancel = true
     }, [search, accessToken, spotifyApi])

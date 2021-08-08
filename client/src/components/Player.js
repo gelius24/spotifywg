@@ -13,7 +13,7 @@ export default function Player({accessToken, trackUri, artist, albumUrl, title})
     if (!accessToken) return null
     return (
         <div className='player1'>  
-          <audio src={trackUri} autoPlay></audio>
+          
           <div className="play100">
           <div className='player'>
               <div className="box">

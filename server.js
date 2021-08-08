@@ -9,10 +9,6 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-console.log('(WOODY) écoute sur le port :', port)
-console.log('(WG redirect url >>', process.env.REDIRECT_URI)
-console.log("...client id",  process.env.CLIENT_ID)
-
 if (process.env.NODE_ENV === 'production' || process.env.NODE_ENV === 'staging') {
   app.use(express.static(path.join(__dirname, 'client/build')));
 
@@ -28,7 +24,6 @@ app.post("/login", (req, res) => {
     clientId: process.env.CLIENT_ID,
     clientSecret: process.env.SECRET_ID,
   });
-
   spotifyApi
     .authorizationCodeGrant(code)
     .then((data) => {

@@ -4,15 +4,10 @@ import { useEffect, useState, useContext } from 'react';
 import { Context } from '../ContextApi';
 import './Header.css'
 
-function Header({accessToken, spotifyApi}) {
+function Header({accessToken, spotifyApi, nom, profilePic}) {
     const [search, setSearch] = useState('')
     const [searchResults, setSearchResults] = useContext(Context)
-
-    useEffect(() => {
-        if (!accessToken) return
-        spotifyApi.setAccessToken(accessToken)
-    }, [accessToken, spotifyApi])
-
+    
     useEffect(() => {
         if (!search) return setSearchResults([])
         if (!accessToken) return
@@ -49,8 +44,8 @@ function Header({accessToken, spotifyApi}) {
                 />
             </div>
             <div className='header__right'>
-                <Avatar  />
-                <h4>Woody Gelius</h4>
+                <Avatar src={profilePic} />
+                <h4>{nom}</h4>
             </div>
         </div>
         </div>

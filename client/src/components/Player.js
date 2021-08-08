@@ -17,7 +17,7 @@ export default function Player({accessToken, trackUri, artist, albumUrl, title})
           <div className="play100">
           <div className='player'>
               <div className="box">
-                <img src={albumUrl} />
+                {albumUrl && <img src={albumUrl} />}
                 <div className="txt"><p>{title}</p><p>{artist}</p></div>
               </div>
               <PlayCircleFilledWhiteIcon style={{ fontSize: '4rem', }} />

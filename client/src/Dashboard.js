@@ -4,7 +4,7 @@ import SpotifyWebApi from 'spotify-web-api-node'
 import Header from './components/Header'
 import Main from './components/Main'
 import Player from './components/Player'
-import { useContext } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import { ContextPS } from './ContextApi'
 import Sidebar from './components/Sidebar'
 
@@ -14,12 +14,39 @@ const spotifyApi = new SpotifyWebApi({
 
 function Dashboard({code}) {
     const [playingTrack, setPlayingTrack] = useContext(ContextPS)
+    const [nom, setNom] = useState('')
+    const [profilePic, setProfilePic] = useState('')
     const accessToken = Auth(code)
+
+    useEffect(() => {
+      if (!accessToken) return
+      spotifyApi.setAccessToken(accessToken)
+  }, [accessToken, spotifyApi])
+
+  useEffect(() => {
+    if (!accessToken) return
+    spotifyApi.getMe()
+    .then(function(data) {
+      setNom(data.body.display_name)
+      setProfilePic(data.body.images[0].url)
+    }, function(err) {
+      console.log('Something went wrong!', err);
+    });
+  }, [accessToken])
+
+  useEffect(()=>{
+    spotifyApi.getUserPlaylists(nom)
+    .then(function(data) {
+      console.log('Retrieved playlists', data.body);
+    },function(err) {
+      console.log('Something went wrong!', err);
+    });
+  }, [nom])
 
     return (
       <div className="dashboard1">
         {/* HEADER */}
-        <Header accessToken={accessToken} spotifyApi={spotifyApi} className='header' />
+        <Header accessToken={accessToken} spotifyApi={spotifyApi} className='header' nom={nom} profilePic={profilePic} />
         {/* MAIN */}
         <Main accessToken={accessToken} spotifyApi={spotifyApi} playingTrack={playingTrack} className='main' trackUri={playingTrack?.preview_url} />
         {/* SIDEBAR */}

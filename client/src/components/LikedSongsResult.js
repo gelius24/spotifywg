@@ -1,10 +1,9 @@
 import React from 'react'
 import './TrackSearchResults.css'
 
-function LikedSongsResult({song, chooseTrack}) {
-    console.log(song)
+function LikedSongsResult({song, chooseLikedTrack}) {
     function handlePlay(){
-        chooseTrack(song)
+        chooseLikedTrack(song)
     }
     return (
         <div className="tracksSearchResults" style={{cursor: 'pointer'}} onClick={handlePlay} >

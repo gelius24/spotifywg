@@ -15,10 +15,21 @@ function Main() {
     if (tag !== undefined) tag.pause()
     setPlayingTrack(track);
     tag = document.createElement("audio");
-    if(track.preview_url) tag.setAttribute("src", track.preview_url);
-    if(track.track.preview_url) tag.setAttribute("src", track.track.preview_url);
-    tag.play();
-    console.log(tag);
+    if(track.preview_url){
+      tag.setAttribute("src", track.preview_url)
+      tag.play();
+      return;
+    }
+  }
+  function chooseLikedTrack(song){
+    if (tag !== undefined) tag.pause()
+    setPlayingTrack(song);
+    tag = document.createElement("audio");
+    if(song.track.preview_url) {
+      tag.setAttribute("src", song.track.preview_url)
+      tag.play();
+      return;
+    }
   }
 
   return (
@@ -42,7 +53,7 @@ function Main() {
           <LikedSongsResult
             song={song}
             key={song.track.uri}
-            chooseTrack={chooseTrack}
+            chooseLikedTrack={chooseLikedTrack}
           />
         ))}
       </div>

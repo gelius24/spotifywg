@@ -66,9 +66,9 @@ function Dashboard({code}) {
         {/* SIDEBAR */}
         <Sidebar className='aside' />
         {/* PLAYER */}
-        <Player className='player' accessToken={accessToken} albumUrl={playingTrack?.albumUrl} title={playingTrack?.title} artist={playingTrack?.artist} />
+        <Player className='player' accessToken={accessToken} />
       </div>
     )
 }
-
+// albumUrl={playingTrack?.albumUrl}
 export default Dashboard

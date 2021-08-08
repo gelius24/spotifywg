@@ -25,6 +25,12 @@
     font-size: 14px;
 }
 
+.active{
+    color: white;
+    border-bottom: 1px white solid;
+    width: 150px;
+}
+
 @media (max-width: 574px) {
     .sidebarOption{
         flex-direction: column;

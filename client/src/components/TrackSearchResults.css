@@ -14,10 +14,6 @@
  color: #777;
 }
 
-/* .tracksSearchResults audio{
-   visibility: hidden;
-} */
-
 @media (max-width: 574px) {
     .tracksSearchResults{
         background-color: rgba(0, 0, 0, 0.185);

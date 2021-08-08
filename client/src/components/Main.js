@@ -1,5 +1,6 @@
-import React, { useContext, useState } from "react";
-import { Context, ContextPS } from "../ContextApi";
+import React, { useContext, useEffect, useState } from "react";
+import { Context, ContextLiked, ContextPage, ContextPS } from "../ContextApi";
+import LikedSongsResult from "./LikedSongsResult";
 import "./Main.css";
 import TrackSearchResult from "./TrackSearchResult";
 let tag = undefined
@@ -7,22 +8,24 @@ let tag = undefined
 function Main() {
   const [searchResults, setSearchResults] = useContext(Context);
   const [playingTrack, setPlayingTrack] = useContext(ContextPS);
-  const [lecture, setLecture] = useState(false);
-
+  const [likedSongs, setLikedSongs] = useContext(ContextLiked)
+  const [page, setPage] = useContext(ContextPage)
+  
   function chooseTrack(track) {
     if (tag !== undefined) tag.pause()
     setPlayingTrack(track);
     tag = document.createElement("audio");
-    tag.setAttribute("src", track.preview_url);
+    if(track.preview_url) tag.setAttribute("src", track.preview_url);
+    if(track.track.preview_url) tag.setAttribute("src", track.track.preview_url);
     tag.play();
-    setLecture(true);
-    tag.setAttribute("onEnded", "setLecture(false)");
     console.log(tag);
   }
 
   return (
     <div className="main">
-      <div className="tracks-box" style={{ overflowY: "auto" }}>
+      {
+        page === 'Search' && 
+        <div className="tracks-box" >
         {searchResults.map((track) => (
           <TrackSearchResult
             track={track}
@@ -31,6 +34,21 @@ function Main() {
           />
         ))}
       </div>
+      }
+      {
+        page === 'Library' &&
+        <div className="liked-box" > 
+      {likedSongs.map((song) => (
+          <LikedSongsResult
+            song={song}
+            key={song.track.uri}
+            chooseTrack={chooseTrack}
+          />
+        ))}
+      </div>
+      }
+      
+      
     </div>
   );
 }

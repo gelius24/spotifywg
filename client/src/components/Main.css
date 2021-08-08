@@ -6,11 +6,14 @@
     /* margin-left: auto; */
     margin-top: 4px;
 }
-.tracks-box{
+.tracks-box,
+.liked-box{
     margin-left: 2%;
     height: 80vh;
+    overflow-y: auto;
 }
-.tracks-box::-webkit-scrollbar {
+.tracks-box::-webkit-scrollbar, 
+.liked-box::-webkit-scrollbar{
     display: none;
 }
 

@@ -19,7 +19,11 @@
     max-width: 230px;
 }
 
-.spotifySVG{display: none;}
+.active{
+    color: white;
+    border-bottom: 1px white solid;
+    width: 150px;
+}
 
 @media (max-width: 1240px) {
     .sidebar img{
@@ -40,5 +44,4 @@
 .sidebar__title, hr, br{
     display: none;
 }
-
 }

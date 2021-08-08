@@ -5,7 +5,7 @@ import Header from './components/Header'
 import Main from './components/Main'
 import Player from './components/Player'
 import { useContext, useEffect, useState } from 'react'
-import { ContextPS } from './ContextApi'
+import { ContextLiked, ContextPS } from './ContextApi'
 import Sidebar from './components/Sidebar'
 
 const spotifyApi = new SpotifyWebApi({
@@ -14,6 +14,7 @@ const spotifyApi = new SpotifyWebApi({
 
 function Dashboard({code}) {
     const [playingTrack, setPlayingTrack] = useContext(ContextPS)
+    const [likedSongs, setLikedSongs] = useContext(ContextLiked)
     const [nom, setNom] = useState('')
     const [profilePic, setProfilePic] = useState('')
     const accessToken = Auth(code)
@@ -35,17 +36,30 @@ function Dashboard({code}) {
   }, [accessToken])
 
   useEffect(()=>{
+    if(!nom) return
     spotifyApi.getUserPlaylists(nom)
     .then(function(data) {
       console.log('Retrieved playlists', data.body);
     },function(err) {
       console.log('Something went wrong!', err);
     });
+
+    spotifyApi.getMySavedTracks({
+      limit : 20,
+      offset: 1
+    })
+    .then(function(data) {
+      console.log(data.body.items);
+      const favorites = data.body.items
+      setLikedSongs(favorites)
+      // console.log(favorites)
+    }, function(err) {
+      console.log('Something went wrong!', err);
+    });
   }, [nom])
 
     return (
       <div className="dashboard1">
-        {/* HEADER */}
         <Header accessToken={accessToken} spotifyApi={spotifyApi} className='header' nom={nom} profilePic={profilePic} />
         {/* MAIN */}
         <Main accessToken={accessToken} spotifyApi={spotifyApi} playingTrack={playingTrack} className='main' trackUri={playingTrack?.preview_url} />

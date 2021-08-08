@@ -12,7 +12,6 @@ export default function TrackSearchResult({track, chooseTrack}) {
                 <div>{track.title}</div>
                 <div className="text-muted">{track.artist}</div>
             </div>
-            {/* <audio id={trackUri} src={trackUri}></audio> */}
         </div>
     )
 }

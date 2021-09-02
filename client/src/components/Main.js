@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
-import { Context, ContextLiked, ContextPage, ContextPS } from "../ContextApi";
+import { Context, ContextLiked, ContextPage, ContextPS, ContextNewRelease } from "../ContextApi";
+import NewRealease from "./home/NewRealease";
 import LikedSongsResult from "./LikedSongsResult";
 import "./Main.css";
 import TrackSearchResult from "./TrackSearchResult";
@@ -9,6 +10,7 @@ function Main() {
   const [searchResults, setSearchResults] = useContext(Context);
   const [playingTrack, setPlayingTrack] = useContext(ContextPS);
   const [likedSongs, setLikedSongs] = useContext(ContextLiked)
+  const [newRelease, setnewRelease] = useContext(ContextNewRelease)
   const [page, setPage] = useContext(ContextPage)
   
   function chooseTrack(track) {
@@ -31,9 +33,22 @@ function Main() {
       return;
     }
   }
-
+  console.log(newRelease)
   return (
     <div className="main">
+      {
+        page === 'Home' &&
+        <div className="newSongs_box" >
+          <h3>Derniers titres</h3> 
+        {newRelease.map((newSong) => (
+          <NewRealease
+            song={newSong}
+            key={newSong.uri}
+            chooseTrack={chooseTrack}
+          />
+        ))}
+      </div>
+      }
       {
         page === 'Search' && 
         <div className="tracks-box" >
@@ -58,8 +73,6 @@ function Main() {
         ))}
       </div>
       }
-      
-      
     </div>
   );
 }

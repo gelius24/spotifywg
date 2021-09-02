@@ -7,7 +7,8 @@
     margin-top: 4px;
 }
 .tracks-box,
-.liked-box{
+.liked-box,
+.newSongs_box{
     margin-left: 2%;
     height: 80vh;
     overflow-y: auto;

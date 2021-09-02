@@ -6,7 +6,7 @@ import { ContextPS } from "../ContextApi";
 export default function Player({ accessToken }) {
   const [playingTrack, setPlayingTrack] = useContext(ContextPS);
   if (!accessToken) return null;
-  console.log(playingTrack);
+  // console.log(playingTrack);
   return (
     <div className="player1">
       <div className="play100">

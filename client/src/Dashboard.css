@@ -1,6 +1,6 @@
 .dashboard1{
     background: linear-gradient(rgb(91, 87, 115), rgba(0,0,0,1)) no-repeat;
-    height: 100vh;
+    height: 100%;
     width: 100vw;
     color: white;
     display: grid;

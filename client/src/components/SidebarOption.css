@@ -1,3 +1,6 @@
+*{
+    overflow-x: hidden;
+}
 .sidebarOption{
     display: flex;
     align-items: center;
@@ -28,7 +31,8 @@
 .active{
     color: white;
     border-bottom: 1px white solid;
-    width: 150px;
+    width: 18vw;
+   
 }
 
 @media (max-width: 574px) {

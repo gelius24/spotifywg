@@ -17,7 +17,7 @@ function Dashboard({code}) {
     const [likedSongs, setLikedSongs] = useContext(ContextLiked)
     const [newRelease, setNewRelease] = useContext(ContextNewRelease)
     const [nom, setNom] = useState('')
-    const [id, setId] = useState('')
+    const [id, setId] = useState(null)
     const [profilePic, setProfilePic] = useState('')
     const accessToken = Auth(code)
     const [userPlaylists, setUserPlaylists] = useState([])
@@ -41,7 +41,7 @@ function Dashboard({code}) {
   }, [accessToken])
 
   useEffect(()=>{
-    if(!nom) return
+    if(!nom && !id) return
     spotifyApi.getUserPlaylists(id)
     .then(function(data) {
       console.log('playlist de l\'utilisateur >>>', data.body);

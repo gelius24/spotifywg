@@ -2,6 +2,7 @@
   background-color: #040404;
   color: white;
   padding: 0 10px;
+  width: 100%;
 }
 .sidebar__logo {
   margin-right: auto;
@@ -14,21 +15,17 @@
   font-size: 12px;
 }
 
-.sidebar img {
-  width: 100vw;
-  max-width: 230px;
-}
-
 .active {
   color: white;
   border-bottom: 1px white solid;
   width: 100%;
 }
 
-@media (max-width: 1240px) {
-  .sidebar img {
-    width: 99%;
-    height: 50px;
+@media (max-width: 1246px) {
+  .sidebar__logo {
+    width: 100%;
+    object-fit: contain;
+    padding: 0;
   }
 }
 
@@ -38,7 +35,6 @@
   }
   .sidebar {
     padding: 0;
-    height: 55px;
     display: flex;
     justify-content: space-evenly;
     align-items: center;

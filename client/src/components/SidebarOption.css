@@ -32,12 +32,14 @@
     color: white;
     border-bottom: 1px white solid;
     width: 18vw;
-   
 }
 
 @media (max-width: 574px) {
     .sidebarOption{
         flex-direction: column;
         height: unset;
+    }
+    .playlists{
+        display: none;
     }
 }

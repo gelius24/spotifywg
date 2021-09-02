@@ -6,7 +6,7 @@ import SearchIcon from '@material-ui/icons/Search';
 import LibraryMusicIcon from '@material-ui/icons/LibraryMusic';
 import { ContextPage } from '../ContextApi';
 
-function Sidebar() {
+function Sidebar({playlists}) {
   // const [{ playlists }, dispatch] = useDataLayerValue();
   const [page, setPage] = useContext(ContextPage)
 
@@ -21,9 +21,9 @@ function Sidebar() {
         <strong className='sidebar__title'>PLAYLISTS</strong>
         <hr />
 
-            {/* {playlists?.items?.map((playlist) => (
+            {playlists?.map((playlist) => (
                 <SidebarOption title={playlist.name} />
-            ))}    */}
+            ))}   
        </div>
     )
 }

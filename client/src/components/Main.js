@@ -33,7 +33,7 @@ function Main() {
       return;
     }
   }
-  console.log(newRelease)
+  
   return (
     <div className="main">
       {

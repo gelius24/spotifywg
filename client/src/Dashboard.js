@@ -17,8 +17,10 @@ function Dashboard({code}) {
     const [likedSongs, setLikedSongs] = useContext(ContextLiked)
     const [newRelease, setNewRelease] = useContext(ContextNewRelease)
     const [nom, setNom] = useState('')
+    const [id, setId] = useState('')
     const [profilePic, setProfilePic] = useState('')
     const accessToken = Auth(code)
+    const [userPlaylists, setUserPlaylists] = useState([])
 
     useEffect(() => {
       if (!accessToken) return
@@ -29,7 +31,9 @@ function Dashboard({code}) {
     if (!accessToken) return
     spotifyApi.getMe()
     .then(function(data) {
+      console.log(data.body)
       setNom(data.body.display_name)
+      setId(data.body.id)
       setProfilePic(data.body.images[0].url)
     }, function(err) {
       console.log('Something went wrong!', err);
@@ -38,9 +42,10 @@ function Dashboard({code}) {
 
   useEffect(()=>{
     if(!nom) return
-    spotifyApi.getUserPlaylists(nom)
+    spotifyApi.getUserPlaylists(id)
     .then(function(data) {
       console.log('playlist de l\'utilisateur >>>', data.body);
+      setUserPlaylists(data.body.items)
     },function(err) {
       console.log('Something went wrong!', err);
     });
@@ -67,7 +72,7 @@ function Dashboard({code}) {
        console.log("Something went wrong!", err);
     });
     
-  }, [nom])
+  }, [nom, id])
 
     return (
       <div className="dashboard1">
@@ -75,7 +80,7 @@ function Dashboard({code}) {
         {/* MAIN */}
         <Main accessToken={accessToken} spotifyApi={spotifyApi} playingTrack={playingTrack} className='main' trackUri={playingTrack?.preview_url} />
         {/* SIDEBAR */}
-        <Sidebar className='aside' />
+        <Sidebar className='aside' playlists={userPlaylists} />
         {/* PLAYER */}
         <Player className='player' accessToken={accessToken} />
       </div>

@@ -33,8 +33,10 @@
 }
 
 @media (max-width: 574px) {
+    
     .play100{
         height: 100px;
+        
     }
 }
 
